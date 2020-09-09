@@ -1,0 +1,12 @@
+FROM ubuntu:18.04
+
+RUN mkdir /test && \
+    mkdir /home/connect && \
+    apt-get update && \
+    apt-get install -y python3
+  
+COPY script.sh script.py /test/
+
+WORKDIR /test
+
+CMD ./script.sh

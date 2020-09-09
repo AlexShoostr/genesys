@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  clientbox:
+    image: clientbox:0.0.1
+    volumes:
+      - ./:/home/connect
+
+  serverbox:
+    image: serverbox:0.0.1
+    environment:
+      - TESTVAR=${TESTVAR}
+    volumes:
+      - ./:/home/connect
+
+
+

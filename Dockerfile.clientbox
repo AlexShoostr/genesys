@@ -1,0 +1,5 @@
+FROM ubuntu:18.04
+
+RUN mkdir /home/connect
+
+CMD cp /etc/hostname /home/connect/clientbox-hostname
