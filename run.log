@@ -1,0 +1,45 @@
+Sending build context to Docker daemon  75.78kB
+
+Step 1/5 : FROM ubuntu:18.04
+ ---> 6526a1858e5d
+Step 2/5 : RUN mkdir /test &&     mkdir /home/connect &&     apt-get update &&     apt-get install -y python3
+ ---> Using cache
+ ---> 06ddda645c09
+Step 3/5 : COPY script.sh script.py /test/
+ ---> Using cache
+ ---> 93a3428e26ce
+Step 4/5 : WORKDIR /test
+ ---> Using cache
+ ---> 778b996a665b
+Step 5/5 : CMD ./script.sh
+ ---> Using cache
+ ---> bb4edd77a91b
+Successfully built bb4edd77a91b
+Successfully tagged serverbox:0.0.1
+Sending build context to Docker daemon   76.8kB
+
+Step 1/3 : FROM ubuntu:18.04
+ ---> 6526a1858e5d
+Step 2/3 : RUN mkdir /home/connect
+ ---> Using cache
+ ---> 2059a74f0d10
+Step 3/3 : CMD cp /etc/hostname /home/connect/clientbox-hostname
+ ---> Using cache
+ ---> 86695914818e
+Successfully built 86695914818e
+Successfully tagged clientbox:0.0.1
+clientbox uses an image, skipping
+serverbox uses an image, skipping
+Creating run-testsh_clientbox_1 ... done
+Creating run-testsh_serverbox_1 ... done
+Attaching to run-testsh_clientbox_1, run-testsh_serverbox_1
+[33mserverbox_1  |[0m Just a random TESTVAR value
+[33mserverbox_1  |[0m Ubuntu 18.04.5 LTS \n \l
+[33mserverbox_1  |[0m Server hostname is 3aa6751b193a
+[33mserverbox_1  |[0m Client hostname is 5a4513ca8f8e
+[36mrun-testsh_clientbox_1 exited with code 0
+[0m[33mrun-testsh_serverbox_1 exited with code 0
+[0m---
+Information from docker:
+serverbox ID=3aa6751b193a
+clientbox ID=5a4513ca8f8e
