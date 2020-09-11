@@ -2,12 +2,18 @@ version: '3'
 
 services:
   clientbox:
-    image: clientbox:0.0.1
+    build: 
+      context: .
+      dockerfile: Dockerfile.clientbox
+    image: genesys_clientbox:latest
     volumes:
       - ./:/home/connect
 
   serverbox:
-    image: serverbox:0.0.1
+    build:   
+      context: .
+      dockerfile: Dockerfile.serverbox
+    image: genesys_serverbox:latest
     environment:
       - TESTVAR=${TESTVAR}
     volumes:
